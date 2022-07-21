@@ -20,7 +20,7 @@ import {
   FormLabel,
 } from '@chakra-ui/react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
-import { TbUpload } from 'react-icons/tb';
+import { AiOutlineUpload} from 'react-icons/ai';
 
 import { UserAuth } from '../context/AuthContext';
 import { useToastHook } from '../lib/useToast';
@@ -106,7 +106,7 @@ export default function UploadContent() {
     <>
       <Button
         variant="with-shadow"
-        leftIcon={<TbUpload />}
+        leftIcon={<AiOutlineUpload/>}
         display={{ base: 'block', lg: 'block' }}
         onClick={onOpen}
         size="sm"
