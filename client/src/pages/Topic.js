@@ -23,7 +23,7 @@ export default function Topic() {
   }, [topicId, setLoading]);
 
   return (
-    <Box>
+    <Box ml={{ base: 'none', md: 20 }}>
       <Flex h="full" className="videos" gap={10} direction="column">
         {loading && <Loader />}
         {topics?.length ? (

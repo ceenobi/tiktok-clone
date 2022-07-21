@@ -49,11 +49,11 @@ export default function ResetPassword() {
   };
 
   return (
-    <Box mt="7rem" textAlign="center">
+    <Box mt="7rem" textAlign="center" ml={{ base: 'none', md: 20 }}>
       <Container maxW="container.lg">
         <Flex direction="column" justify="center" p={3} m="auto">
           <VStack spacing={4} mb={2} mt={2}>
-            <Heading as="h2" fontSize="2xl" mb={4} >
+            <Heading as="h2" fontSize="2xl" mb={4}>
               Reset your password
             </Heading>
             <Text>Enter your new password</Text>

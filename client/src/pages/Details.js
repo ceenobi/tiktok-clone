@@ -107,7 +107,7 @@ export default function Details() {
   return (
     <>
       {postDetail && (
-        <Box py={3}>
+        <Box py={3} ml={{ base: 'none', md: 20 }}>
           <Flex
             direction={{ base: 'column', lg: 'row' }}
             gap={6}

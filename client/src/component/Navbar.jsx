@@ -59,11 +59,12 @@ export default function Navbar() {
           top={0}
           zIndex={2}
           position="fixed"
-          borderBottom="2px"
+          borderBottom="1px"
           borderBottomColor={borderBottomColor}
+          py={2}
         >
           <Container maxW="container.xl">
-            <Flex justify="space-between" align="center" p={3}>
+            <Flex justify="space-between" align="center">
               <Heading justify="flex-start" fontSize="2xl" as={Link} to="/">
                 TheBuzz
               </Heading>

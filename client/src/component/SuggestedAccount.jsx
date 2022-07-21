@@ -27,7 +27,7 @@ export default function SuggestedAccount({ fix }) {
       </Text>
       {suggested?.slice(0, 4).map(item => (
         <Flex key={item._id} mb={3} gap={2} align="center">
-          <Flex gap={2}>
+          <Flex gap={3}>
             <Avatar
               as={Link}
               to={`/profile/${item._id}`}

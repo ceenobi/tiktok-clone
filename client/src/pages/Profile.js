@@ -83,7 +83,7 @@ export default function Profile() {
   if (!profile) return <Loader />;
 
   return (
-    <Box py={3}>
+    <Box py={3} ml={{ base: 'none', md: 20 }}>
       <Flex>
         <Box w="full">
           <Flex justify="space-between">

@@ -9,6 +9,7 @@ import {
   VStack,
   Button,
   useColorModeValue,
+  AspectRatio
 } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { GoVerified } from 'react-icons/go';
@@ -123,18 +124,27 @@ export default function VideoCard({ item }) {
       </Flex>
       <Flex direction="column" ml="60px">
         <Flex>
-          <Box w="300px">
+          <Box w='500px'>
             <Link to={`/detail/${item._id}`}>
-              <Box
+              <AspectRatio maxW="460px" ratio={1}>
+                <iframe
+                  title="naruto"
+                  src={item.video.asset.url}
+                  allowFullScreen
+                />
+              </AspectRatio>
+
+              {/* <Box
                 as="video"
                 src={item.video.asset.url}
                 type="video/mp4"
                 loop
                 controls
                 w="full"
+                h='200px'
                 objectFit="fill"
                 borderRadius="lg"
-              />
+              /> */}
             </Link>
           </Box>
           <VStack spacing="30px" justify="flex-end" ml="10px">

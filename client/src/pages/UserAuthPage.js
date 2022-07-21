@@ -108,7 +108,7 @@ export default function UserAuthPage() {
   };
 
   return (
-    <Box mt="1rem" textAlign="center">
+    <Box textAlign="center">
       <VStack alignItems="center" spacing={4} mb={4}>
         <Heading fontSize="2xl" as={Link} to="/">
           TheBuzz
