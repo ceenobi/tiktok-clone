@@ -14,7 +14,7 @@ import {
   MenuItem,
   VStack,
 } from '@chakra-ui/react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
 import { FiChevronDown } from 'react-icons/fi';
 import { CgProfile } from 'react-icons/cg';
@@ -26,7 +26,7 @@ import SearchInput from './SearchInput';
 
 export default function Navbar() {
   const [nav, setNav] = useState(false);
-  const location = useLocation();
+  // const location = useLocation();
   const { logout, user } = UserAuth();
   const bg = useColorModeValue('white', 'BlackAlpha.600');
   const borderBottomColor = useColorModeValue('gray.100', 'gray.700');
@@ -42,12 +42,12 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    if (location.pathname !== '/auth') {
+    if (user) {
       setNav(true);
     } else {
       setNav(false);
     }
-  }, [location]);
+  }, [user]);
 
   return (
     <>
