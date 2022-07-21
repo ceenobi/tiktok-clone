@@ -28,6 +28,8 @@ export default function Sidebar() {
     }
   }, [location]);
 
+  //const close = ()=> setShowModal(!showModal)
+
   return (
     <>
       {showSide && (
@@ -74,7 +76,7 @@ export default function Sidebar() {
                       <SearchInput />
                     </Box>
                   </Box>
-                  <Discover fix={borderStyle} />
+                  <Discover fix={borderStyle}/>
                   <SuggestedAccount fix={borderStyle} />
                   <Footer />
                 </Box>
