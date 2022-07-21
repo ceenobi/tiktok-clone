@@ -9,7 +9,9 @@ import { UserAuth } from '../context/AuthContext';
 
 export default function SuggestedAccount({ fix }) {
   const [suggest, setSuggest] = useState([]);
-  const { user } = UserAuth();
+  const { user, showModal, setShowModal } = UserAuth();
+
+  const close = () => setShowModal(!showModal);
 
   useEffect(() => {
     const query = allUsersQuery();
@@ -27,16 +29,12 @@ export default function SuggestedAccount({ fix }) {
       </Text>
       {suggested?.slice(0, 4).map(item => (
         <Flex key={item._id} mb={3} gap={2} align="center">
-          <Flex gap={3}>
-            <Avatar
-              as={Link}
-              to={`/profile/${item._id}`}
-              src={item.image}
-              size="sm"
-              name={item.userName}
-            />
-            <Text>{item.userName}</Text>
-          </Flex>
+          <Link to={`/profile/${item._id}`} onClick={close}>
+            <Flex gap={3}>
+              <Avatar src={item.image} size="sm" name={item.userName} />
+              <Text>{item.userName}</Text>
+            </Flex>
+          </Link>
           <Icon as={GoVerified} color="paint.teal" />
         </Flex>
       ))}

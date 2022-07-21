@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 
 export function Layout({ children }) {
   return (
-    <Box w="full" overflow="auto" h="100vh">
+    <Box w="full" overflow="hidden" h="100vh">
       <Navbar />
       <Container maxW="container.xl" mt="5rem">
         <Flex gap={{ base: 'none', lg: '0' }} justify="space-between">
@@ -17,7 +17,6 @@ export function Layout({ children }) {
             h="88vh"
             flex="1"
             mt={2}
-            //ml={{ base: 'none', md: 16 }}
             direction="column"
             className="videos"
           >

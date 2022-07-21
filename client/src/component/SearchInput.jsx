@@ -1,17 +1,24 @@
 import React from 'react';
-import { Input, InputGroup, InputRightElement, useColorModeValue } from '@chakra-ui/react';
+import {
+  Input,
+  InputGroup,
+  InputRightElement,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { IoMdSearch } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 
 import { UserAuth } from '../context/AuthContext';
 
 export default function SearchInput() {
-  const { searchTerm, setSearchTerm } = UserAuth();
-  const navigate = useNavigate()
+  const { searchTerm, setSearchTerm, showModal, setShowModal } = UserAuth();
+  const navigate = useNavigate();
+  const close = () => setShowModal(!showModal);
 
   const searchItem = () => {
     if (searchTerm.trim()) {
       navigate(`/search?keyword=${searchTerm}`);
+      close();
     }
   };
 
@@ -33,7 +40,7 @@ export default function SearchInput() {
           onKeyDown={handleKeyPress}
           rounded="xl"
           bg={useColorModeValue('gray.100', 'gray.700')}
-          //onFocus={() => navigate('/search')}
+          onFocus={() => navigate('/search')}
         />
         <InputRightElement
           pointerEvents="none"

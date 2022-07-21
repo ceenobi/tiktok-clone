@@ -12,7 +12,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  Portal,
   VStack,
 } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
@@ -27,7 +26,7 @@ import SearchInput from './SearchInput';
 
 export default function Navbar() {
   const [nav, setNav] = useState(false);
-  const location = useLocation()
+  const location = useLocation();
   const { logout, user } = UserAuth();
   const bg = useColorModeValue('white', 'BlackAlpha.600');
   const borderBottomColor = useColorModeValue('gray.100', 'gray.700');
@@ -57,11 +56,11 @@ export default function Navbar() {
           w="full"
           bg={bg}
           top={0}
-          zIndex={2}
+          zIndex={3}
           position="fixed"
-          borderBottom="1px"
+          //borderBottom="1px"
           borderBottomColor={borderBottomColor}
-          py={2}
+          py={3}
         >
           <Container maxW="container.xl">
             <Flex justify="space-between" align="center">
@@ -78,7 +77,6 @@ export default function Navbar() {
                 cursor="pointer"
               >
                 <UploadContent />
-
                 <Menu isLazy>
                   <MenuButton
                     py={2}
@@ -109,23 +107,21 @@ export default function Navbar() {
                       </Box>
                     </HStack>
                   </MenuButton>
-                  <Portal>
-                    <MenuList fontSize="lg" borderColor="gray.200">
-                      <MenuItem
-                        as={Link}
-                        to={`/profile/${user?._id}`}
-                        icon={<CgProfile fontSize="20px" />}
-                      >
-                        Profile
-                      </MenuItem>
-                      <MenuItem
-                        onClick={handleLogout}
-                        icon={<RiLogoutCircleRLine fontSize="20px" />}
-                      >
-                        Logout
-                      </MenuItem>
-                    </MenuList>
-                  </Portal>
+                  <MenuList fontSize="lg" borderColor="gray.200">
+                    <MenuItem
+                      as={Link}
+                      to={`/profile/${user?._id}`}
+                      icon={<CgProfile fontSize="20px" />}
+                    >
+                      Profile
+                    </MenuItem>
+                    <MenuItem
+                      onClick={handleLogout}
+                      icon={<RiLogoutCircleRLine fontSize="20px" />}
+                    >
+                      Logout
+                    </MenuItem>
+                  </MenuList>
                 </Menu>
                 <ColorModeSwitcher />
               </HStack>
