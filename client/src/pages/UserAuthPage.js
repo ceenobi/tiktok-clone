@@ -115,10 +115,10 @@ export default function UserAuthPage() {
         </Heading>
         <Icon as={BsFillLockFill} />
       </VStack>
-      <Heading as="h2" mb={6}>
+      <Heading as="h2" mb={4}>
         {isSignup ? 'Sign up for free' : 'Sign in'}
       </Heading>
-      <Box mb={6} onClick={switchMode}>
+      <Box mb={4} onClick={switchMode}>
         {isSignup ? (
           <Text textStyle="p">
             Already have a the-buzz account?{' '}
@@ -135,7 +135,7 @@ export default function UserAuthPage() {
           </Text>
         )}
       </Box>
-      <Box mt={4} mb={4}>
+      <Box mb={4}>
         <Button
           w="140px"
           h="48px"

@@ -9,7 +9,7 @@ import {
   VStack,
   Button,
   useColorModeValue,
-  AspectRatio
+  AspectRatio,
 } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { GoVerified } from 'react-icons/go';
@@ -124,13 +124,13 @@ export default function VideoCard({ item }) {
       </Flex>
       <Flex direction="column" ml="60px">
         <Flex>
-          <Box w='500px'>
+          <Box w="460px">
             <Link to={`/detail/${item._id}`}>
-              <AspectRatio maxW="460px" ratio={1}>
+              <AspectRatio maxW="full" ratio={9/16}>
                 <iframe
                   title="naruto"
                   src={item.video.asset.url}
-                  allowFullScreen
+                  //allowFullScreen
                 />
               </AspectRatio>
 
