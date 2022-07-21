@@ -26,8 +26,9 @@ export default function UserAuthPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [openModal, setOpenModal] = useState(false)
 
-  const { createUser, signIn, signInWithGoogle, showModal, setShowModal } =
+  const { createUser, signIn, signInWithGoogle } =
     UserAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -138,7 +139,7 @@ export default function UserAuthPage() {
         <Button
           w="140px"
           h="48px"
-          variant="solid"
+          variant="outline"
           leftIcon={<FaGoogle color="teal" />}
           color="black"
           bg="paint.white"
@@ -148,7 +149,7 @@ export default function UserAuthPage() {
         </Button>
       </Box>
       <Box maxW="400px" m="auto">
-        {showModal && <ForgotPassword />}
+        {openModal && <ForgotPassword setOpenModal={setOpenModal}/>}
         <form onSubmit={handleSubmit}>
           <VStack spacing="20px" py={2}>
             <FormControl isInvalid={isError} isRequired>
@@ -177,7 +178,7 @@ export default function UserAuthPage() {
             {!isSignup && (
               <Text
                 textStyle="p"
-                onClick={() => setShowModal(true)}
+                onClick={() => setOpenModal(true)}
                 cursor="pointer"
               >
                 Forgot password?

@@ -19,9 +19,8 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { UserAuth } from '../context/AuthContext';
 import { useToastHook } from '../lib/useToast';
 
-export default function ForgotPassword() {
+export default function ForgotPassword({ setOpenModal }) {
   const [email, setEmail] = useState('');
-  const [openPop, setOpenPop] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { forgotPassword } = UserAuth();
   const [handleToast] = useToastHook();
@@ -46,7 +45,7 @@ export default function ForgotPassword() {
     alignItems: 'center',
   };
 
-  const close = () => setOpenPop(false);
+  const close = () => setOpenModal(false);
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -67,59 +66,58 @@ export default function ForgotPassword() {
 
   return (
     <>
-      {openPop && (
-        <Box sx={boxStyle}>
-          <Container maxW="container.lg" textAlign="center" sx={innerBoxStyle}>
-            <ScaleFade initialScale={0.9} in="true">
-              <Grid
-                bg="#23232d"
-                p={3}
-                boxShadow="xl"
-                w={{ base: 'full', lg: '600px' }}
-                color="paint.white"
-              >
-                <Flex justify="flex-end">
-                  <Icon
-                    as={AiOutlineClose}
-                    onClick={() => setOpenPop(false)}
-                    cursor="pointer"
-                    fontSize="30px"
-                  />
-                </Flex>
-                <VStack spacing={4} mb={2} mt={2}>
-                  <Heading as="h2" fontSize="2xl" mb={4}>
-                    Reset your password
-                  </Heading>
-                  <Text>Enter your email to reset your password</Text>
-                </VStack>
-                <Box w={{ base: '270px', lg: '400px' }} m="auto">
-                  <form onSubmit={onSubmit}>
-                    <VStack spacing="20px" py={2}>
-                      <FormControl isRequired>
-                        <FormLabel htmlFor="email">Email address</FormLabel>
-                        <Input
-                          type="email"
-                          size="lg"
-                          value={email}
-                          onChange={e => setEmail(e.target.value)}
-                        />
-                      </FormControl>
-                      <Button
-                        w="full"
-                        type="submit"
-                        variant="smooth"
-                        isLoading={isSubmitting}
-                      >
-                        SEND LINK
-                      </Button>
-                    </VStack>
-                  </form>
-                </Box>
-              </Grid>
-            </ScaleFade>
-          </Container>
-        </Box>
-      )}
+      <Box sx={boxStyle}>
+        <Container maxW="container.lg" textAlign="center" sx={innerBoxStyle}>
+          <ScaleFade initialScale={0.9} in="true">
+            <Grid
+              bg="#23232d"
+              p={3}
+              boxShadow="xl"
+              w={{ base: 'full', lg: '600px' }}
+              color="paint.white"
+            >
+              <Flex justify="flex-end">
+                <Icon
+                  as={AiOutlineClose}
+                  onClick={() => setOpenModal(false)}
+                  cursor="pointer"
+                  fontSize="30px"
+                />
+              </Flex>
+
+              <VStack spacing={4} mb={2} mt={2}>
+                <Heading as="h2" fontSize="2xl" mb={4}>
+                  Reset your password
+                </Heading>
+                <Text>Enter your email to reset your password</Text>
+              </VStack>
+              <Box w={{ base: 'full', lg: '400px' }} m="auto">
+                <form onSubmit={onSubmit}>
+                  <VStack spacing="20px" py={2}>
+                    <FormControl isRequired>
+                      <FormLabel htmlFor="email">Email address</FormLabel>
+                      <Input
+                        type="email"
+                        size="lg"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                      />
+                    </FormControl>
+                    <Button
+                      w="full"
+                      type="submit"
+                      variant="smooth"
+                      isLoading={isSubmitting}
+                    >
+                      SEND LINK
+                    </Button>
+                  </VStack>
+                </form>
+              </Box>
+            </Grid>
+          </ScaleFade>
+        </Container>
+      </Box>
     </>
   );
 }

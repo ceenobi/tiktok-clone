@@ -32,7 +32,7 @@ export default function VideoCard({ item }) {
     display: 'flex',
     justify: 'center',
     align: 'center',
-    bg: useColorModeValue('gray.200', 'teal.400'),
+    bg: useColorModeValue('gray.200', 'gray.700'),
     _hover: {
       bg: 'red.400',
       color: 'paint.white',

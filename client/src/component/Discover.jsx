@@ -5,9 +5,11 @@ import { Link} from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 
 export default function Discover({ fix }) {
-  const { feeds } = UserAuth();
+  const { feeds, showModal, setShowModal } = UserAuth();
   const queryParams = new URLSearchParams(window.location.search);
   const topic = queryParams.get('topic');
+
+    const close = () => setShowModal(!showModal);
 
   return (
     <Box borderBottom={4} pb="30px" border="gray.100" sx={fix}>
@@ -24,8 +26,9 @@ export default function Discover({ fix }) {
             leftIcon={item.icon}
             size="sm"
             _hover={{
-              bg: topic === item.topic ? 'teal' : 'gray',
+              bg: topic === item.topic ? 'gray' : 'teal',
             }}
+            onClick={close}
           >
             {item.topic}
           </Button>

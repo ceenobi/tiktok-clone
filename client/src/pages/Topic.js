@@ -11,14 +11,16 @@ import { UserAuth } from '../context/AuthContext';
 export default function Topic() {
   const [topics, setTopics] = useState([]);
   const { topicId } = useParams();
-  const { loading } = UserAuth();
+  const { loading, setLoading } = UserAuth();
 
   useEffect(() => {
+    setLoading(true);
     const query = topicPostsQuery(topicId);
     client.fetch(query).then(data => {
       setTopics(data);
+      setLoading(false);
     });
-  }, [topicId]);
+  }, [topicId, setLoading]);
 
   return (
     <Box>

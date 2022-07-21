@@ -39,6 +39,14 @@ export default function Routes() {
       ),
     },
     {
+      path: '/*',
+      element: (
+        <ProtectedRoute>
+          <Dashboard />
+        </ProtectedRoute>
+      ),
+    },
+    {
       path: 'profile/:profileId',
       element: (
         <ProtectedRoute>

@@ -12,8 +12,8 @@ import Footer from './Footer';
 import SuggestedAccount from './SuggestedAccount';
 
 export default function Sidebar() {
-  const { showModal, setShowModal} = UserAuth();
-  const [showSide, setShowSide] = useState(false)
+  const { showModal, setShowModal } = UserAuth();
+  const [showSide, setShowSide] = useState(false);
   const location = useLocation();
   const borderStyle = {
     borderBottom: '1px solid #CBD5E0',
@@ -27,8 +27,6 @@ export default function Sidebar() {
       setShowSide(false);
     }
   }, [location]);
-
-  //const close = ()=> setShowModal(!showModal)
 
   return (
     <>
@@ -76,7 +74,7 @@ export default function Sidebar() {
                       <SearchInput />
                     </Box>
                   </Box>
-                  <Discover fix={borderStyle}/>
+                  <Discover fix={borderStyle} />
                   <SuggestedAccount fix={borderStyle} />
                   <Footer />
                 </Box>

@@ -8,16 +8,16 @@ export function Layout({ children }) {
     <Box w="full" overflow="hidden" h="100vh">
       <Navbar />
       <Container maxW="container.xl" mt="5rem">
-        <Flex gap={{ base: 'none', lg: '40' }} justify='space-between'>
-          <Box h="88vh" overflow="auto" mt={2}>
+        <Flex gap={{ base: 'none', lg: '0' }} justify="space-between">
+          <Box h="95vh" overflow="auto" mt={2}>
             <Sidebar />
           </Box>
           <Flex
-            gap={10}
             overflow="auto"
-            h="88vh"
+            h="90vh"
             flex="1"
             mt={4}
+            ml={{ base: 'none', md: 16 }}
             direction="column"
             className="videos"
           >
