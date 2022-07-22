@@ -40,8 +40,8 @@ export default function CreatedVidCard({ created }) {
       onMouseLeave={() => setIsHover(false)}
       position="relative"
     >
-      <Box
-        as="video"
+      <video
+        //as="video"
         src={created.video.asset.url}
         type="video/mp4"
         loop
