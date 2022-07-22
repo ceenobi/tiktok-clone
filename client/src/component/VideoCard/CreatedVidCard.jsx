@@ -40,13 +40,13 @@ export default function CreatedVidCard({ created }) {
       onMouseLeave={() => setIsHover(false)}
       position="relative"
     >
-      <AspectRatio ratio={9 / 16}>
+      <AspectRatio ratio={9 / 16} maxW="528px">
         <iframe
           src={created.video.asset.url}
           type="video/mp4"
           loop
-          w="full"
-          h={{ base: '400px', lg: '528px' }}
+          //w="full"
+          //h={{ base: '400px', lg: '528px' }}
           //objectFit="contain"
           //ref={videoRef}
           title={created.caption}
