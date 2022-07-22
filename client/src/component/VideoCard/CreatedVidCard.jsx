@@ -46,7 +46,7 @@ export default function CreatedVidCard({ created }) {
         type="video/mp4"
         loop
         w="full"
-        h="500px"
+        h={{ base: '500px', lg: '528px' }}
         objectFit="contain"
         borderRadius="lg"
         ref={videoRef}

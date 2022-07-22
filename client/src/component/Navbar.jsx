@@ -62,7 +62,7 @@ export default function Navbar() {
           borderBottomColor={borderBottomColor}
           py={3}
         >
-          <Container maxW="container.xl">
+          <Container maxW="container.lg">
             <Flex justify="space-between" align="center">
               <Heading justify="flex-start" fontSize="2xl" as={Link} to="/">
                 TheBuzz
