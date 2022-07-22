@@ -1,15 +1,13 @@
 import React from 'react';
 import { useRoutes } from 'react-router-dom';
-import {
-  Dashboard,
-  UserAuthPage,
-  ResetPassword,
-  Profile,
-  Search,
-  Details,
-  Topic
-} from '../pages';
 import ProtectedRoute from './ProtectedRoute';
+const Profile = React.lazy(() => import('../pages/Profile'));
+const Dashboard = React.lazy(() => import('../pages/Dashboard'));
+const UserAuthPage = React.lazy(() => import('../pages/UserAuthPage'));
+const Search = React.lazy(() => import('../pages/Search'));
+const Details = React.lazy(() => import('../pages/Details'));
+const Topic = React.lazy(() => import('../pages/Topic'));
+const ResetPassword = React.lazy(() => import('../pages/ResetPassword'));
 
 export default function Routes() {
   let element = useRoutes([

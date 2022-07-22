@@ -122,15 +122,14 @@ export default function VideoCard({ item }) {
           </Button>
         )}
       </Flex>
-      <Flex direction="column" ml="60px">
+      <Flex direction="column" ml="70px">
         <Flex>
-          <Box w="460px">
+          <Box w="280px" rounded="xl">
             <Link to={`/detail/${item._id}`}>
-              <AspectRatio maxW="full" ratio={9/16}>
+              <AspectRatio maxW="full" maxH="500px" ratio={9 / 16}>
                 <iframe
                   title="naruto"
                   src={item.video.asset.url}
-                  //allowFullScreen
                 />
               </AspectRatio>
 

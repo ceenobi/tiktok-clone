@@ -85,7 +85,7 @@ export default function Profile() {
   return (
     <Box py={3} ml={{ base: 'none', md: 20 }}>
       <Flex>
-        <Box w="full">
+        <Box>
           <Flex justify="space-between">
             <HStack spacing={3}>
               <Avatar
@@ -140,17 +140,15 @@ export default function Profile() {
                   }}
                   gap={3}
                 >
-                  <Box>
-                    {created?.length ? (
-                      created?.map(item => (
-                        <CreatedVidCard created={item} key={item._id} />
-                      ))
-                    ) : (
-                      <Flex textAlign="center">
-                        <Text mt="4rem">No videos found. Start posting.</Text>
-                      </Flex>
-                    )}
-                  </Box>
+                  {created?.length ? (
+                    created?.map(item => (
+                      <CreatedVidCard created={item} key={item._id} />
+                    ))
+                  ) : (
+                    <Flex textAlign="center">
+                      <Text mt="4rem">No videos found. Start posting.</Text>
+                    </Flex>
+                  )}
                 </Grid>
               </TabPanel>
               <TabPanel>
