@@ -20,6 +20,7 @@ import { UserAuth } from '../context/AuthContext';
 import { client } from '../lib/client';
 import { postDetailQuery } from '../lib/queries';
 import Loader from '../utils/Loader';
+import CreatedVidCard from '../component/VideoCard/CreatedVidCard';
 
 export default function Details() {
   const [postDetail, setPostDetail] = useState();
@@ -113,22 +114,8 @@ export default function Details() {
             gap={6}
             ml={{ base: null, lg: '10' }}
           >
-            <Box minW="280px" mb={6}>
-              <Box
-                as="video"
-                src={postDetail.video.asset.url}
-                type="video/mp4"
-                loop
-                controls
-                w="full"
-                h="500px"
-                objectFit="contain"
-                borderRadius="lg"
-                mb={4}
-                sx={{
-                  aspectRatio: '9/16',
-                }}
-              />
+            <Box w={{ base: 'full', lg: '280px' }} mb={6}>
+              <CreatedVidCard created={postDetail} />
               <Flex justify="space-between" align="center">
                 {liked ? (
                   <Flex gap={4}>

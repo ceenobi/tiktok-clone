@@ -20,6 +20,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { client } from '../../lib/client';
 import { UserAuth } from '../../context/AuthContext';
+import CreatedVidCard from './CreatedVidCard';
 
 export default function VideoCard({ item }) {
   const [userFollowed, setUserFollowed] = useState(false);
@@ -123,22 +124,7 @@ export default function VideoCard({ item }) {
       </Flex>
       <Flex direction="column" ml="70px">
         <Flex direction={{ base: 'column', md: 'row' }}>
-          <Box minW="280px" rounded="xl" mb={3}>
-            <Box
-              as="video"
-              src={item.video.asset.url}
-              type="video/mp4"
-              loop
-              controls
-              w="full"
-              h="500px"
-              objectFit="contain"
-              borderRadius="lg"
-              sx={{
-                aspectRatio: '9/16',
-              }}
-            />
-          </Box>
+          <CreatedVidCard created={item} />
           <Stack
             spacing="30px"
             justify={{ base: 'flex-start', md: 'flex-end' }}
