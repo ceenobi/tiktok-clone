@@ -29,11 +29,9 @@ const theme = extendTheme(
     textStyles: {
       p: {
         fontSize: '14px',
-        //color: 'gray.300',
       },
       sm: {
         fontSize: '14px',
-        //color: 'gray.300',
         _hover: {
           textDecoration: 'underline',
           cursor: 'pointer',
