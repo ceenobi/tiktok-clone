@@ -40,7 +40,7 @@ export default function CreatedVidCard({ created }) {
       onMouseLeave={() => setIsHover(false)}
       position="relative"
     >
-      <AspectRatio ratio={9 / 16} maxW="528px">
+      <AspectRatio ratio={1} maxW="528px">
         <iframe
           src={created.video.asset.url}
           type="video/mp4"
