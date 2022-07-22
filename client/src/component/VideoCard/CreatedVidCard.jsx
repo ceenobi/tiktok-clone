@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Box, Flex, IconButton, AspectRatio } from '@chakra-ui/react';
+import { Box, Flex, IconButton } from '@chakra-ui/react';
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
 import { BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs';
 
@@ -36,25 +36,24 @@ export default function CreatedVidCard({ created }) {
       w={{ base: 'full', md: '290px' }}
       rounded="xl"
       mb={3}
-      onMouseEnter={() => setIsHover(false)}
+      onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       position="relative"
     >
-      <AspectRatio ratio={1} maxW="528px">
-        <iframe
-          src={created.video.asset.url}
-          type="video/mp4"
-          loop
-          //w="full"
-          //h={{ base: '400px', lg: '528px' }}
-          //objectFit="contain"
-          //ref={videoRef}
-          title={created.caption}
-          // sx={{
-          //   aspectRatio: '9/16',
-          // }}
-        />
-      </AspectRatio>
+      <Box
+        as="video"
+        src={created.video.asset.url}
+        type="video/mp4"
+        loop
+        w="full"
+        h={{ base: '500px', lg: '528px' }}
+        objectFit="contain"
+        borderRadius="xl"
+        ref={videoRef}
+        sx={{
+          aspectRatio: '9/16',
+        }}
+      />
       {isHover && (
         <Flex
           w="full"
