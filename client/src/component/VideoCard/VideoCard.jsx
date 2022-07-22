@@ -6,7 +6,7 @@ import {
   HStack,
   Icon,
   Text,
-  VStack,
+  Stack,
   Button,
   useColorModeValue,
 } from '@chakra-ui/react';
@@ -122,26 +122,29 @@ export default function VideoCard({ item }) {
         )}
       </Flex>
       <Flex direction="column" ml="70px">
-        <Flex>
-          <Box w="280px" rounded="xl">
-            <Link to={`/detail/${item._id}`}>
-              <Box
-                as="video"
-                src={item.video.asset.url}
-                type="video/mp4"
-                loop
-                controls
-                w="full"
-                h="500px"
-                objectFit="fill"
-                borderRadius="lg"
-                sx={{
-                  aspectRatio: '9/16',
-                }}
-              />
-            </Link>
+        <Flex direction={{ base: 'column', md: 'row' }}>
+          <Box minW="280px" rounded="xl" mb={3}>
+            <Box
+              as="video"
+              src={item.video.asset.url}
+              type="video/mp4"
+              loop
+              controls
+              w="full"
+              h="500px"
+              objectFit="contain"
+              borderRadius="lg"
+              sx={{
+                aspectRatio: '9/16',
+              }}
+            />
           </Box>
-          <VStack spacing="30px" justify="flex-end" ml="10px">
+          <Stack
+            spacing="30px"
+            justify={{ base: 'flex-start', md: 'flex-end' }}
+            ml="10px"
+            direction={{ base: 'row', md: 'column' }}
+          >
             <Box textAlign="center">
               <Box sx={boxStyle}>
                 {liked ? (
@@ -162,7 +165,7 @@ export default function VideoCard({ item }) {
                   />
                 )}
               </Box>
-              <Text textStyle="p">{item?.likes?.length}</Text>
+              <Text textStyle="p">{item?.likes?.length || 0}</Text>
             </Box>
             <Box textAlign="center">
               <Box sx={boxStyle}>
@@ -174,7 +177,7 @@ export default function VideoCard({ item }) {
                   cursor="pointer"
                 />
               </Box>
-              <Text textStyle="p">{item?.comments?.length}</Text>
+              <Text textStyle="p">{item?.comments?.length || 0}</Text>
             </Box>
             <Box textAlign="center">
               <Box sx={boxStyle}>
@@ -187,7 +190,7 @@ export default function VideoCard({ item }) {
               </Box>
               <Text textStyle="p">Share</Text>
             </Box>
-          </VStack>
+          </Stack>
         </Flex>
       </Flex>
     </Box>

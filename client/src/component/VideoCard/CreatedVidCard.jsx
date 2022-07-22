@@ -14,7 +14,7 @@ export default function CreatedVidCard({ created }) {
           controls
           w="full"
           h="500px"
-          objectFit="fill"
+          objectFit="contain"
           borderRadius="lg"
           sx={{
             aspectRatio: '9/16',

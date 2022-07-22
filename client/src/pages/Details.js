@@ -113,7 +113,7 @@ export default function Details() {
             gap={6}
             ml={{ base: null, lg: '10' }}
           >
-            <Box minW="250px" mb={6}>
+            <Box minW="280px" mb={6}>
               <Box
                 as="video"
                 src={postDetail.video.asset.url}
@@ -122,8 +122,12 @@ export default function Details() {
                 controls
                 w="full"
                 h="500px"
+                objectFit="contain"
                 borderRadius="lg"
                 mb={4}
+                sx={{
+                  aspectRatio: '9/16',
+                }}
               />
               <Flex justify="space-between" align="center">
                 {liked ? (

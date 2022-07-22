@@ -67,7 +67,7 @@ const theme = extendTheme(
           width: '0px',
         },
         '::-webkit-scrollbar': {
-          width: '1px',
+          width: '2px',
         },
         '::-webkit-scrollbar-thumb': {
           _hover: {
@@ -78,6 +78,7 @@ const theme = extendTheme(
         },
         '::-webkit-scrollbar-track': {
           backgroundColor: 'transparent',
+          borderRadius: '0',
         },
       }),
     },
@@ -95,7 +96,6 @@ const theme = extendTheme(
         variants: {
           'with-shadow': {
             bg: 'red.400',
-            // w: '120px',
           },
           smooth: {
             bg: 'red.400',
