@@ -26,10 +26,9 @@ export default function UserAuthPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
 
-  const { createUser, signIn, signInWithGoogle } =
-    UserAuth();
+  const { createUser, signIn, signInWithGoogle, user } = UserAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const ref = useRef(false);
@@ -43,6 +42,15 @@ export default function UserAuthPage() {
       ref.current = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (isSignup) {
+      handleToast({
+        message: 'ceate account using mock email and password',
+        status: 'info',
+      });
+    }
+  }, [isSignup, handleToast]);
 
   const switchMode = () => {
     setIsSignup(previsSignup => !previsSignup);
@@ -149,7 +157,7 @@ export default function UserAuthPage() {
         </Button>
       </Box>
       <Box maxW="400px" m="auto">
-        {openModal && <ForgotPassword setOpenModal={setOpenModal}/>}
+        {openModal && <ForgotPassword setOpenModal={setOpenModal} />}
         <form onSubmit={handleSubmit}>
           <VStack spacing="20px" py={2}>
             <FormControl isInvalid={isError} isRequired>
