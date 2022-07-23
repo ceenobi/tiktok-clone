@@ -28,7 +28,7 @@ export default function UserAuthPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
-  const { createUser, signIn, signInWithGoogle, user } = UserAuth();
+  const { createUser, signIn, signInWithGoogle } = UserAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const ref = useRef(false);
