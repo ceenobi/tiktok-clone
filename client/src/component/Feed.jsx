@@ -9,7 +9,7 @@ export default function Feed() {
   const { loading, feeds } = UserAuth();
 
   return (
-    <Flex h="full" className="videos" gap={10} direction="column" ml={{ base: 'none', md: 20 }}>
+    <Flex h="full" className="videos" direction="column" ml={{ base: 'none', md: 20 }}>
       {loading && <Loader />}
       {feeds.length ? (
         feeds?.map(item => <VideoCard item={item} key={item._id} />)

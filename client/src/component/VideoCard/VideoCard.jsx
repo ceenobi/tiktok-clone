@@ -86,13 +86,18 @@ export default function VideoCard({ item }) {
 
   return (
     <Box py={5} px={2} mb={4} borderBottom="1px solid #CBD5E0">
-      <Flex justify="space-between">
+      <Flex
+        justify="space-between"
+        align="center"
+        direction={{ base: 'column', sm: 'row' }}
+        flexWrap="wrap"
+      >
         <HStack spacing={3}>
           <Avatar
             as={Link}
             to={`/profile/${item.postedBy?._id}`}
             src={item.postedBy.image}
-            size="lg"
+            size="md"
             name={item.postedBy.userName}
           />
           <Box textAlign="left" fontWeight="bold">
@@ -112,17 +117,19 @@ export default function VideoCard({ item }) {
             </Box>
           </Box>
         </HStack>
-        {userFollowed ? (
-          <Button variant="with-shadow" ml="auto" onClick={unFollow}>
-            Following
-          </Button>
-        ) : (
-          <Button variant="with-shadow" ml="auto" onClick={follow}>
-            Follow
-          </Button>
-        )}
+        <Box mb={3}>
+          {userFollowed ? (
+            <Button variant="with-shadow" onClick={unFollow}>
+              Following
+            </Button>
+          ) : (
+            <Button variant="with-shadow" onClick={follow}>
+              Follow
+            </Button>
+          )}
+        </Box>
       </Flex>
-      <Flex direction="column" ml="70px">
+      <Flex direction="column" ml={{ base: 'none', md: '70px' }}>
         <Flex direction={{ base: 'column', md: 'row' }}>
           <CreatedVidCard created={item} />
           <Stack

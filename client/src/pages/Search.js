@@ -8,7 +8,8 @@ import {
   Tab,
   TabPanel,
   Avatar,
-  HStack
+  HStack,
+  Grid
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
@@ -58,15 +59,15 @@ export default function Search() {
 
   const searchVideos = items?.filter(
     item =>
-      item.caption.toLowerCase().includes(searchTerm) ||
-      item.topic.toLowerCase().includes(searchTerm)
+      item?.caption.toLowerCase().includes(searchTerm) ||
+      item?.topic.toLowerCase().includes(searchTerm)
   );
 
 
 
   return (
     <>
-      <Box>
+      <Box ml={{ base: 'none', md: 20 }}>
         {loading && <Loader />}
         <Tabs isFitted>
           <TabList>
@@ -79,15 +80,27 @@ export default function Search() {
           </TabList>
           <TabPanels>
             <TabPanel>
-              {searchVideos?.length !== 0 &&
-                searchVideos.map(item => (
-                  <CreatedVidCard created={item} key={item._id} />
-                ))}
-              {searchVideos?.length === 0 && searchTerm !== '' && !loading && (
-                <Box textAlign="center">
-                  <Text>No Videos Found!</Text>
-                </Box>
-              )}
+              <Grid
+                templateColumns={{
+                  sm: 'repeat(1, 1fr)',
+                  md: 'repeat(2, 1fr)',
+                  lg: 'repeat(2, 1fr)',
+                  xl: 'repeat(2, 1fr)',
+                  '2xl': 'repeat(2, 1fr)',
+                  base: 'repeat(1, 1fr)',
+                }}
+                gap={3}
+              >
+                {searchVideos?.length !== 0 &&
+                  searchVideos.map(item => (
+                    <CreatedVidCard created={item} key={item._id} />
+                  ))}
+                {searchVideos?.length === 0 && searchTerm !== '' && !loading && (
+                  <Box textAlign="center">
+                    <Text>No Videos Found!</Text>
+                  </Box>
+                )}
+              </Grid>
             </TabPanel>
             <TabPanel>
               {searchedAccounts.length > 0 &&

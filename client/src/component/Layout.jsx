@@ -8,7 +8,7 @@ export function Layout({ children }) {
     <Box w="full" overflow="hidden" h="100vh">
       <Navbar />
       <Container maxW="container.lg" mt="5rem">
-        <Flex gap={{ base: 'none', lg: '0' }} justify="space-between">
+        <Flex justify="space-between">
           <Box h="92vh" overflow="auto" mt={2}>
             <Sidebar />
           </Box>
