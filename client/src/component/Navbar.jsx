@@ -58,7 +58,7 @@ export default function Navbar() {
           top={0}
           zIndex={3}
           position="fixed"
-           borderBottom="1px"
+          borderBottom="1px"
           borderBottomColor={borderBottomColor}
           py={3}
         >

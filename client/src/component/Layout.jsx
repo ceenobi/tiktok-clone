@@ -14,7 +14,7 @@ export function Layout({ children }) {
           </Box>
           <Flex
             overflow="auto"
-            h="100vh"
+            h="90vh"
             flex="1"
             mt={2}
             direction="column"
