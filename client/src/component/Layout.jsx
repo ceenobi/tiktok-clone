@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 
 export function Layout({ children }) {
   return (
-    <Box w="full" overflow="hidden" h="100vh">
+    <Box w="full" overflow="hidden" >
       <Navbar />
       <Container maxW="container.lg" mt="5rem">
         <Flex justify="space-between">
@@ -14,7 +14,7 @@ export function Layout({ children }) {
           </Box>
           <Flex
             overflow="auto"
-            h="88vh"
+            h="100vh"
             flex="1"
             mt={2}
             direction="column"
